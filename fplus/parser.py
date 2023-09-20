@@ -1,11 +1,9 @@
 from rply import ParserGenerator
 import curses
-pg = ParserGenerator(["INT", "STR", "FLT", "PLUS", "MINUS", "TIMES", "DIVIDE", "LEFT_PAR", "RIGHT_PAR", "ECHO", "TOINT", "TOFLT", "TOSTR"], precedence=[("left", ['INT', 'STR', 'FLT', 'TOSTR', 'TOFLT', 'TOINT', 'TIMES', 'DIVIDE', "PLUS", "MINUS"])], cache_id="myparser")
+pg = ParserGenerator(["INT", "STR", "FLT", "PLUS", "MINUS", "TIMES", "DIVIDE", "LEFT_PAR", "RIGHT_PAR", "ECHO", "TOINT", "TOFLT", "TOSTR"], precedence=[('left', ['PLUS', 'MINUS']), ('left', ['TIMES', 'DIVIDE']), ("left", ['TOSTR', 'TOFLT', 'TOINT']), ("left", ['INT', 'STR', 'FLT'])], cache_id="myparser")
 
 @pg.production("main : expr")
 def main(p):
-    # p is a list, of each of the pieces on the right hand side of the
-    # grammar rule
     return p[0]
 @pg.production("expr : STR")
 def expr_str(p):
