@@ -1,6 +1,6 @@
 from rply import ParserGenerator
 import curses
-pg = ParserGenerator(["INT", "STR", "FLT", "PLUS", "MINUS", "TIMES", "DIVIDE", "LEFT_PAR", "RIGHT_PAR", "ECHO", "TOINT", "TOFLT", "TOSTR"], precedence=[("left", ['TOINT', 'TOFLT', 'TOSTR', 'TIMES', 'DIVIDE', "PLUS", "MINUS"])], cache_id="myparser")
+pg = ParserGenerator(["INT", "STR", "FLT", "PLUS", "MINUS", "TIMES", "DIVIDE", "LEFT_PAR", "RIGHT_PAR", "ECHO", "TOINT", "TOFLT", "TOSTR"], precedence=[("left", ['INT', 'STR', 'FLT', 'TOSTR', 'TOFLT', 'TOINT', 'TIMES', 'DIVIDE', "PLUS", "MINUS"])], cache_id="myparser")
 
 @pg.production("main : expr")
 def main(p):
