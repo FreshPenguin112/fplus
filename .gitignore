@@ -1,0 +1,9 @@
+*.__pycache__
+fplus/testing.py
+fplus/appdirs.py
+fplus/rply
+build
+fplus.egg-info
+build.sh
+install.sh
+test.fplus
